@@ -4,7 +4,7 @@
 if [ -z "$1" ]; then echo "$0: file.unitypackage (path)"; exit 1; fi
 DIRNAME="${2:-${1%.*}}"
 
-# Set script to stop immediatly if a command fails
+# Set script to stop immediately if a command fails
 set -e
 
 # Create the folders and extract the Unity package
@@ -15,7 +15,7 @@ tar -xf "$1" -C "$DIRNAME/guid"
 echo "OK"
 echo -n "Rebuilding file hierarchy in '$DIRNAME/tree'... "
 
-# Rebuild tree heirachy
+# Rebuild tree hierarchy
 find "$DIRNAME/guid" -type f -name pathname | while read -r pathname_file; do
     guid_dir=$(dirname "$pathname_file")
     asset_file="$guid_dir/asset"
