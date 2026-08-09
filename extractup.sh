@@ -1,5 +1,7 @@
 #!/bin/sh
 
+if [ "$(id -u)" -eq 0 ]; then echo "Never run this script as root"; exit 1; fi
+
 # Check enough information was given to extract a Unity package
 if [ -z "$1" ]; then printf '%s: file.unitypackage (path)\n' "$0"; exit 1; fi
 DIRNAME="${2:-${1%.*}}"
